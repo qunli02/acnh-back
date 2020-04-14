@@ -1,5 +1,5 @@
 class Api::V1::TurnipSellPricesController < ApplicationController
-  before_action :find_turnip_sell_price, only: [:update]
+  before_action :find_turnip_sell_price, only: [:update, :show]
   def index
     @turnip_sell_prices = TurnipSellPrice.all
     render json: @turnip_sell_prices
@@ -14,6 +14,10 @@ class Api::V1::TurnipSellPricesController < ApplicationController
     end
   end
 
+  def show
+    render json: @turnip_sell_price
+  end
+
   private
 
   def turnip_sell_price_params
@@ -21,6 +25,6 @@ class Api::V1::TurnipSellPricesController < ApplicationController
   end
 
   def find_turnip_sell_price
-    @turnip_sell_price = Note.find(params[:id])
+    @turnip_sell_price = TurnipSellPrice.find(params[:id])
   end
 end
