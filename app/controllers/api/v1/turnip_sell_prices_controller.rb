@@ -21,7 +21,7 @@ class Api::V1::TurnipSellPricesController < ApplicationController
   private
 
   def turnip_sell_price_params
-    params.permit(:id, :user_id, :morning_price, :afternoon_price)
+    params.permit(:user_id, :morning_price, :afternoon_price)
   end
 
   def find_turnip_sell_price
