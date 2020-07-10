@@ -6,11 +6,11 @@ class Api::V1::TurnipSellPricesController < ApplicationController
   end
 
   def create 
-    @turnipprice = @user.turnip_sell_prices.find_by(date: turnip_sell_price_params["date"])
+    @turnipprice = @user.turnip_sell_prices.find_by(date: turnip_sell_price_params["date"].delete("Z"))
     if @turnipprice
       @turnipprice.update((turnip_sell_price_params["time"]+"_price") => turnip_sell_price_params["price"])
     else
-      TurnipSellPrice.create(user_id: @user.id, date: turnip_sell_price_params["date"], (turnip_sell_price_params["time"]+"_price") => turnip_sell_price_params["price"])
+      TurnipSellPrice.create(user_id: @user.id, date: turnip_sell_price_params["date"].delete("Z"), (turnip_sell_price_params["time"]+"_price") => turnip_sell_price_params["price"])
       @turnipprice = TurnipSellPrice.last
     end
     render json:  @turnipprice 
