@@ -5,6 +5,17 @@ class Api::V1::TurnipSellPricesController < ApplicationController
     render json: @turnip_sell_prices
   end
 
+  def create 
+    @turnipprice = @user.turnip_sell_prices.find_by(date: turnip_sell_price_params["date"])
+    if @turnipprice
+      @turnipprice.update((turnip_sell_price_params["time"]+"_price") => turnip_sell_price_params["price"])
+    else
+      TurnipSellPrice.create(user_id: @user.id, date: turnip_sell_price_params["date"], (turnip_sell_price_params["time"]+"_price") => turnip_sell_price_params["price"])
+      @turnipprice = TurnipSellPrice.last
+    end
+    render json:  @turnipprice 
+  end
+
   def update
     @turnip_sell_price.update(turnip_sell_price_params)
     if @turnip_sell_price.save
@@ -21,7 +32,7 @@ class Api::V1::TurnipSellPricesController < ApplicationController
   private
 
   def turnip_sell_price_params
-    params.permit(:user_id, :morning_price, :afternoon_price)
+    params.permit(:price, :time, :date)
   end
 
   def find_turnip_sell_price
