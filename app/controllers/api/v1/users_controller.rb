@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   before_action :find_user, only: [:update, :show]
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:create, :index]
 
   def profile
     render json: { user: UserSerializer.new(current_user) }, status: :accepted
