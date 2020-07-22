@@ -17,8 +17,5 @@ please also download my anch-front for a fully functioning website
 
 ## How to start the Data base
 
-find this anch-back file in the directory
+find this anch-back file in the directory\
 run `rails db:create` and `rails db:migrate`
-
-I think you should use an
-`<addr>` element here instead.
