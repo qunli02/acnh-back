@@ -7,7 +7,9 @@ ruby '2.6.1'
 ## make sure you have the following gems
 
 gem "jwt", "~> 2.2"
+
 gem 'rack-cors'
+
 gem 'active_model_serializers'
 
 ## This is just a Data Base for anch-front
