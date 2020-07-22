@@ -18,4 +18,12 @@
 ## How to start the Data base
 
     find this anch-back file in the directory
-    run ```rails db:create````<addr>` and ``` rails db:migrate ```
+    run ```rails db:create``` and ``` rails db:migrate ```
+
+```javascript
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({ div: "#foo" });
+  }
+}
+```
