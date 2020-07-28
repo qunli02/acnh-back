@@ -22,3 +22,7 @@ find this anch-back file in the directory\
 run `rails db:create` and `rails db:migrate`\
 run 'rails s -p 4000' # you must run on port 4000 as the front-end refers to that port number
 Most of the routes on the webpage will be blocked behind log in, please download [Front-end!](https://github.com/qunli02/acnh-front) to run this application correctly.
+
+# Contact
+
+if there is any problem you can contact me at qunli02@gmail.com
